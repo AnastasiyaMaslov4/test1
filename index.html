@@ -14,27 +14,12 @@
         <div class="filter center"><button class="filter__btn" @click="showFavourites"> {{filterMessage}}</button></div>
         <section class="content center">
             <ul class="catalog">
-                <li v-for="product in cardsList">
-                    <div class="catalog__card" :id="product.id">
-                    <button class="catalog__card__btnClose" @click="closeCard">
-                    <img src="img/close-circle-svgrepo-com.svg" alt="close btn" width="40px">
-                    </button>
-                    <button class="catalog__card__btnLike"  :class="{'liked': product.favourite}" @click="addToVafourite">
-                    <img src="img/like-svgrepo-com.svg" alt="like btn" width="40px">
-                    </button>
-                    <a class="catalog__card__link" href=#>
-                    <div class="catalog__card__img">
-                    <img :src="product.image" alt="product picture">
-                    </div>
-                    <h3 class="catalog__card__title"> {{product.title}} </h3>
-                    <p class="catalog__card__price"> {{product.price}} $<p>
-                    </a>
-                </div>
-                </li>
+                <card v-for="product in cardsList" :product="product" :add-to-favourite="addToFavourite" :key="product.id"></card>
             </ul>
         </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="script.js"></script>
+    <script src="card.js"></script>
 </body>
 </html>

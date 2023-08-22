@@ -18,7 +18,7 @@ var app = new Vue({
           product.favourite = false;
         }
       },
-      addToVafourite: function(event) {
+      addToFavourite: function(event) {
         let card = event.target.parentNode.parentNode;
         let id = card.id;
         let btn = card.querySelector('.catalog__card__btnLike');
@@ -45,10 +45,6 @@ var app = new Vue({
           this.filterMessage = "Показать избранные";
         }
       },
-      closeCard: function(event) {
-        let card = event.target.parentNode.parentNode.parentNode;
-        card.style.display = 'none';
-      }
     },
     mounted() {
       this.loadData();
